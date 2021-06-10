@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sample::hack::lib::version::get_version_vars() {
+sample::lib::version::get_version_vars() {
 	SAMPLE_GIT_COMMIT="$(git rev-parse HEAD 2>/dev/null)"
 
 	if git_status="$(git status --porcelain 2>/dev/null)" && [[ -z "${git_status}" ]]; then
