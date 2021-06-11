@@ -1,0 +1,21 @@
+#!/bin/bash
+
+set -o errexit
+set -o nounset
+set -o pipefail
+
+SAMPLE_ROOT="$(dirname "${BASH_SOURCE[0]}")/.."
+source "${SAMPLE_ROOT}/build/lib/version.sh"
+
+sample::build::lib::version::get_version_vars
+
+LDFLAGS="-w -s"
+LDFLAGS+=" -X main.version=${SAMPLE_GIT_VERSION}"
+LDFLAGS+=" -X main.gitCommit=${GIT_COMMIT}"
+LDFLAGS+=" -X main.gitTreeState=${GIT_TREE_STATE}"
+
+go build \
+  -o output/bin/version \
+  -ldflags "${LDFLAGS}" \
+  -ldflags "-X main.version=${SAMPLE_GIT_VERSION} -X main.gitCommit=${GIT_COMMIT} -X main.gitTreeState=${GIT_TREE_STATE}" \
+  github.com/BedivereZero/sample-version/cmd/version
