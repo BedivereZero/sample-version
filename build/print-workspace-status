@@ -6,7 +6,7 @@ set -o pipefail
 
 
 SAMPLE_ROOT="$(dirname "${BASH_SOURCE[0]}")/.."
-source "${SAMPLE_ROOT}/hack/lib/version.sh"
+source "${SAMPLE_ROOT}/build/lib/version.sh"
 
 sample::lib::version::get_version_vars
 
