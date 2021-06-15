@@ -16,3 +16,10 @@ func TestGet(t *testing.T) {
 		}
 	}
 }
+
+func BenchmarkGet(t *testing.B) {
+	t.ResetTimer()
+	for i := 0; i < t.N; i++ {
+		Get()
+	}
+}

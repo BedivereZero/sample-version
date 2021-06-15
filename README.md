@@ -14,5 +14,5 @@
 - [x] 构建过程中生成版本信息
 - [x] 使用脚本或 Makefile 实现
 - [ ] 什么是 `ldflags`
-- [ ] unit test
-- [ ] perfomance test, such as `semver`
+- [x] unit test
+- [x] perfomance test, such as `semver`

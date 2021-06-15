@@ -1,7 +1,6 @@
 package version
 
 import (
-	"fmt"
 	"runtime"
 )
 
@@ -15,6 +14,6 @@ func Get() *Version {
 		BuildDate:    buildDate,
 		GoVersion:    runtime.Version(),
 		Compiler:     runtime.Compiler,
-		Platform:     fmt.Sprintf("%s/%s", runtime.GOOS, runtime.GOARCH),
+		Platform:     runtime.GOOS + "/" + runtime.GOARCH,
 	}
 }

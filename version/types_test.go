@@ -16,3 +16,14 @@ func TestString(t *testing.T) {
 		}
 	}
 }
+
+func BenchmarkString(t *testing.B) {
+	v := Get()
+	var s string
+	t.ResetTimer()
+	for i := 0; i < t.N; i++ {
+		s = v.String()
+	}
+	// Avoid warning: unused result
+	_ = s
+}
